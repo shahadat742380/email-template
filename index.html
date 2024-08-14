@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>Document</title>
+
+    <!-- link font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- style -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            font-family: "Montserrat", sans-serif;
+        }
+
+        .main-container {
+            max-width: 600px;
+            margin: 80px auto;
+
+        }
+
+        .img-container {
+            display: flex;
+            justify-content: center;
+            padding: 8px;
+            background-color: #EF3A53;
+        }
+
+        .container {
+            padding: 24px 32px 24px 32px;
+            gap: 10px;
+            background-color: #FEE9EA;
+        }
+
+        .info-container {
+            padding: 35px 24px 35px 24px;
+            opacity: 0px;
+            background-color: #FFFFFF;
+        }
+
+        .main-title {
+            color: #EF3A53;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 24.38px;
+            text-align: center;
+        }
+
+        .order-info {
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+            margin-top: 32px;
+        }
+
+        .order-info>h3 {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 19.5px;
+            text-align: left;
+        }
+
+        .content {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 19.5px;
+            text-align: left;
+            margin-top: 16px;
+        }
+
+        hr {
+            margin: 20px 0;
+            border-top: 1px solid #CED4DA;
+        }
+
+        .title {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 19.5px;
+            text-align: center;
+            color: #22292F;
+        }
+
+        .address-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 44px;
+            margin-top: 12px;
+        }
+
+        .address>p {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 22.4px;
+            text-align: left;
+        }
+
+        .address-title {
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 22.4px;
+            text-align: left;
+            color: #22292F;
+            margin-bottom: 4px;
+        }
+
+        .shoping-method{
+            margin-top: 24px;
+        }
+        .shoping-method>h2 {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 19.5px;
+            text-align: left;
+            color: #22292F;
+            margin-bottom: 12px;
+        }
+
+        .shoping-method>h3 {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 22.4px;
+            text-align: left;
+        }
+
+        .shoping-method>p {
+            font-size: 13px;
+            font-weight: 400;
+            line-height: 19.06px;
+            text-align: center;
+            color: #666666;
+            margin: 0 auto;
+            margin-top: 40px;
+            width: 55%;
+
+        }
+
+        /* order summary */
+        .summary-title {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 19.5px;
+            text-align: center;
+            color: #EF3A53;
+            margin-bottom: 12px;
+        }
+
+        .order-summary-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .order-summary-table th,
+        .order-summary-table td {
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 1px solid #CED4DA;
+            color: #22292F;
+            font-size: 13px;
+        }
+
+        .order-summary-table td {
+            font-weight: 500;
+        }
+
+
+        .product-details {
+            display: flex;
+            align-items: center;
+        }
+
+        .product-image {
+            width: 64px;
+            height: 64px;
+            margin-right: 8px;
+            object-fit: cover;
+        }
+
+        .product-name {
+            font-size: 13px;
+            font-weight: 400;
+            line-height: 15.6px;
+            text-align: left;
+            color: #22292F;
+        }
+
+        .subtotal {
+            text-align: right !important;
+        }
+
+        .kty {
+            text-align: center !important;
+        }
+
+        .empty-td {
+            width: 40%;
+        }
+
+        .subtotal-table {
+            width: 100%;
+        }
+
+        .subtotal-table td {
+            border: none !important;
+            padding: 0px 0px 8px 0px !important;
+        }
+
+        .subtotal-title {
+            text-align: left !important;
+            padding: 0px 0px !important;
+            font-size: 13px;
+            font-weight: 500;
+            line-height: 20px;
+            text-align: left;
+            color: #666666 !important;
+
+        }
+
+        .subtotal-value {
+            text-align: right !important;
+            font-size: 13px;
+            font-weight: 600;
+            line-height: 15.85px;
+            color: #22292F;
+        }
+
+        .green-color {
+            color: #38B106 !important;
+        }
+
+        .total-title,
+        .total-value {
+            font-size: 16px;
+            font-weight: 600 !important;
+            line-height: 19.5px;
+            color: #22292F;
+        }
+        .total-value{
+            text-align: right !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="img-container">
+            <img src="./logo.png" alt="logo">
+        </div>
+        <div class="container">
+            <div class="info-container">
+                <h2 class="main-title">Thank you for your purchase!
+                </h2>
+                <!-- order information -->
+                <div>
+                    <div class="order-info">
+                        <h3><span style="font-weight: 500;">Dear</span> Akash Gupta,</h3>
+                        <h3>ORDER ID <span style="color:#EF3A53; font-weight: 500;">#2089</span></h3>
+                    </div>
+                    <p class="content">We're getting your order ready to be shipped. We will notify you when it has
+                        been sent.
+                    </p>
+                </div>
+                <hr>
+                <!-- customer information -->
+                <div>
+                    <h2 class="title">CUSTOMER INFORMATION</h2>
+                    <div class="address-container">
+                        <div class="address">
+                            <h3 class="address-title">Shipping address
+                            </h3>
+                            <p>
+                                Akash Gupta
+                            </p>
+                            <p>
+                                4517 Washington Ave. Manchester, Kentucky 39495
+                            </p>
+                        </div>
+                        <div class="address">
+                            <h3 class="address-title">Billing address
+                            </h3>
+                            <p>
+                                Akash Gupta
+                            </p>
+                            <p>
+                                4517 Washington Ave. Manchester, Kentucky 39495
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <!-- order summary -->
+                <div>
+                    <h2 class="summary-title">ORDER SUMMARY</h2>
+                    <div>
+                        <table class="order-summary-table">
+                            <thead>
+                                <tr>
+                                    <th>PRODUCT NAME</th>
+                                    <th class="kty">QTY</th>
+                                    <th class="subtotal">SUBTOTAL</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="product-details">
+                                            <img src="https://m.yodycdn.com/blog/pick-me-girl-la-gi-yodyvn5.jpg"
+                                                alt="Product Image" class="product-image">
+                                            <span class="product-name">Product Name 1</span>
+                                        </div>
+                                    </td>
+                                    <td class="kty">1</td>
+                                    <td class="subtotal">$100.00</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        <table class="order-summary-table">
+                            <tbody>
+                                <tr>
+                                    <td class="empty-td"></td>
+                                    <td>
+                                        <table class="subtotal-table">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="subtotal-title">Total MRP</td>
+                                                    <td class="subtotal-value">Rs: 3,297</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="subtotal-title">Discount on MRP</td>
+                                                    <td class="subtotal-value green-color">Rs: 3,297</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="subtotal-title">Shipping</td>
+                                                    <td class="subtotal-value green-color">Free</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        <table class="order-summary-table">
+                            <tbody>
+                                <tr>
+                                    <td class="empty-td"></td>
+                                    <td>
+                                        <table class="subtotal-table">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="total-title">Total</td>
+                                                    <td class="total-value">Rs: 1,300</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- shopping method -->
+                <div class="shoping-method">
+                    <h2>Shipping method</h2>
+                    <h3>Standard Shipping <span style="color: #EF3A53; font-weight: 500;">(Cash on Delivery)</span>
+                    </h3>
+                    <p>
+                        If you have any questions, reply to this email or
+                        contact us at <a href="mailto:info@pagalawwrat.com"
+                            style="display: inline; color: #EF3A53;">info@pagalawwrat.com</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
